@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Página web moderna creada desde cero.">
+  <title>NovaWeb | Soluciones Digitales</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar container">
+      <a href="#inicio" class="logo">NOVA<span>WEB</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-content reveal">
+        <p class="eyebrow">SOLUCIONES DIGITALES</p>
+        <h1>Haz que tu proyecto <span>se destaque.</span></h1>
+        <p class="hero-text">
+          Creamos experiencias web modernas, rápidas y adaptadas a cualquier dispositivo.
+        </p>
+        <div class="hero-buttons">
+          <a href="#servicios" class="btn btn-primary">Ver servicios</a>
+          <a href="#contacto" class="btn btn-secondary">Contactarnos</a>
+        </div>
+      </div>
+      <div class="scroll-indicator">↓</div>
+    </section>
+
+    <section id="servicios" class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">LO QUE HACEMOS</p>
+          <h2>Servicios para llevar tu idea al siguiente nivel</h2>
+          <p>Todo lo que necesitas para tener una presencia digital profesional.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-icon">✦</div>
+            <h3>Diseño moderno</h3>
+            <p>Interfaces atractivas, limpias y pensadas para ofrecer una excelente experiencia.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">⚡</div>
+            <h3>Alto rendimiento</h3>
+            <p>Páginas rápidas y optimizadas para cargar correctamente en diferentes dispositivos.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">◈</div>
+            <h3>Responsive</h3>
+            <p>Tu sitio se adapta automáticamente a computadores, tablets y teléfonos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros" class="section section-dark">
+      <div class="container about-grid">
+        <div class="about-text reveal">
+          <p class="eyebrow">SOBRE NOSOTROS</p>
+          <h2>Convertimos ideas en experiencias digitales.</h2>
+          <p>
+            Nuestro objetivo es crear sitios web que combinen diseño, funcionalidad
+            y velocidad. Cada proyecto se construye pensando en las necesidades
+            reales de sus usuarios.
+          </p>
+          <a href="#contacto" class="btn btn-primary">Empezar proyecto</a>
+        </div>
+
+        <div class="stats reveal">
+          <div class="stat"><strong>100%</strong><span>Responsive</span></div>
+          <div class="stat"><strong>24/7</strong><span>Disponible</span></div>
+          <div class="stat"><strong>⚡</strong><span>Rápido</span></div>
+          <div class="stat"><strong>∞</strong><span>Creatividad</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section">
+      <div class="container contact-grid">
+        <div class="contact-info reveal">
+          <p class="eyebrow">CONTACTO</p>
+          <h2>¿Tienes un proyecto?</h2>
+          <p>Cuéntanos tu idea y nos pondremos en contacto contigo.</p>
+          <div class="contact-item">📧 contacto@novaweb.com</div>
+          <div class="contact-item">📱 +57 300 000 0000</div>
+          <div class="contact-item">📍 Colombia</div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" placeholder="Tu nombre" required>
+
+          <label for="email">Correo</label>
+          <input id="email" name="email" type="email" placeholder="tu@email.com" required>
+
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+
+          <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+          <p class="form-message" id="formMessage"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="logo">NOVA<span>WEB</span></div>
+      <p>© <span id="year"></span> NovaWeb. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <button id="topButton" class="top-button" aria-label="Volver arriba">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
