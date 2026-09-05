@@ -1,93 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VOIDEX — Plataforma Juegos</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VOIDEX — Gaming Hub</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bg-grid"></div>
-  <div class="orb orb-one"></div>
-  <div class="orb orb-two"></div>
+<div class="bg-grid"></div><div class="glow g1"></div><div class="glow g2"></div>
 
-  <header class="topbar">
-    <div class="brand"><span class="brand-mark">V</span> VOIDEX</div>
-    <button class="mobile-menu" aria-label="Abrir menú">☰</button><div class="top-actions">
-      <button class="icon-btn" aria-label="Notificaciones">◉</button>
-      <button class="avatar">VX</button>
+<header class="topbar">
+  <button class="brand" data-page="home"><span class="brand-mark">V</span><strong>VOIDEX</strong></button>
+  <div class="search"><span>⌕</span><input id="searchInput" placeholder="Buscar juegos..." autocomplete="off"><kbd>⌘K</kbd></div>
+  <div class="top-actions"><button class="circle" id="notificationsBtn">♧<i></i></button><button class="user" id="avatarBtn"><span>VX</span><div><b id="topName">JugadorX</b><small>Nivel 42</small></div><em>⌄</em></button></div>
+</header>
+
+<aside class="sidebar">
+  <button class="side active" data-page="home"><span>⌂</span>Inicio</button>
+  <button class="side" data-page="discover"><span>◈</span>Explorar</button>
+  <button class="side" data-page="profile"><span>▥</span>Progreso</button>
+  <button class="side" data-page="friends"><span>♧</span>Amigos</button>
+  <button class="side" data-page="achievements"><span>♕</span>Logros</button>
+  <button class="side" data-page="settings"><span>⚙</span>Ajustes</button>
+</aside>
+
+<main class="app">
+<section class="page active" id="home">
+  <div class="hero">
+    <div class="hero-copy"><span class="eyebrow">DESCUBRE ALGO ÉPICO</span><h1>Elige tu<br>siguiente <em>aventura</em></h1><p>Explora, compite y descubre nuevos mundos. Siempre hay algo nuevo esperándote.</p>
+      <div class="hero-stats"><div><b>⚡</b><strong>Miles de jugadores</strong><small>Jugando ahora</small></div><div><b>☆</b><strong>Nuevos juegos</strong><small>Cada semana</small></div><div><b>♕</b><strong>Compite y gana</strong><small>Demuestra tu nivel</small></div></div>
+      <div class="hero-buttons"><button class="primary" data-page="discover">Explorar juegos <span>→</span></button><button class="ghost" data-page="profile">Ver mi progreso</button></div>
     </div>
-  </header>
+    <div class="hero-art"><img src="hero-character-clean.png" alt="Arte futurista de VOIDEX"><div class="event-card"><span>NUEVO EVENTO</span><b>TORNEO VOIDEX</b><p>Compite por premios exclusivos.</p><button id="eventBtn">Ver evento <span>→</span></button></div></div>
+  </div>
+  <div class="home-row"><div><div class="section-title"><span>PARA TI</span><h2>Juega ahora</h2></div><div class="mini-grid"><button class="mini" data-game="Neon Rift"><div class="mini-art neon"></div><div><b>Neon Rift</b><small>Acción · 12K jugando</small></div><span>→</span></button><button class="mini" data-game="Void Runner"><div class="mini-art runner"></div><div><b>Void Runner</b><small>Carreras · 8K jugando</small></div><span>→</span></button></div></div><div class="daily"><span>RECOMPENSA DIARIA</span><b>+250 XP</b><small>Juega hoy para mantener tu racha.</small><button id="claimBtn">Reclamar recompensa</button></div></div>
+</section>
 
-  <div class="mobile-overlay"></div><main class="app">
-    <section class="hero page active" id="home">
-      <div class="hero-copy">
-        <span class="eyebrow">SISTEMA EN LÍNEA</span>
-        <h1>ENTRA AL<br><span>VACÍO.</span></h1>
-        <p>Tu centro gaming. Descubre, conecta y lleva tu experiencia al siguiente nivel.</p>
-        <div class="hero-buttons">
-          <button class="primary" data-page="discover">EXPLORAR AHORA <span>→</span></button>
-          <button class="ghost" data-page="profile">MI PERFIL</button>
-        </div>
-      </div>
+<section class="page" id="discover">
+  <div class="section-head"><div><span class="eyebrow">DESCUBRE ALGO NUEVO</span><h2>Elige tu <em>juego</em></h2><p>Encuentra tu próxima partida según lo que te apetezca jugar.</p></div></div>
+  <div class="filters"><div class="chips"><button class="chip active" data-filter="all">▦ Todos</button><button class="chip" data-filter="action">◉ Acción</button><button class="chip" data-filter="racing">◉ Carreras</button><button class="chip" data-filter="fps">◉ FPS</button><button class="chip" data-filter="adventure">△ Aventura</button></div><button class="sort" id="sortBtn">Más populares⌄</button></div>
+  <div class="game-grid">
+    <article class="game-card" data-category="action" data-name="Neon Rift"><div class="card-art art-one"><span>POPULAR</span><button class="heart">♡</button></div><div class="card-body"><div><h3>Neon Rift</h3><label>ACCIÓN</label><p>★ 4.8 <b>12K jugando</b></p></div><button class="play">JUGAR <i>▶</i></button></div></article>
+    <article class="game-card" data-category="racing" data-name="Void Runner"><div class="card-art art-two"><span>NUEVO</span><button class="heart">♡</button></div><div class="card-body"><div><h3>Void Runner</h3><label>CARRERAS</label><p>★ 4.7 <b>8K jugando</b></p></div><button class="play">JUGAR <i>▶</i></button></div></article>
+    <article class="game-card" data-category="fps" data-name="Cyber Zone"><div class="card-art art-three"><span>COMPETITIVO</span><button class="heart">♡</button></div><div class="card-body"><div><h3>Cyber Zone</h3><label>FPS</label><p>★ 4.6 <b>15K jugando</b></p></div><button class="play">JUGAR <i>▶</i></button></div></article>
+    <article class="game-card" data-category="adventure" data-name="Echo Worlds"><div class="card-art art-four"><span>AVENTURA</span><button class="heart">♡</button></div><div class="card-body"><div><h3>Echo Worlds</h3><label>AVENTURA</label><p>★ 4.9 <b>6K jugando</b></p></div><button class="play">JUGAR <i>▶</i></button></div></article>
+  </div><div class="empty" id="empty">No encontramos juegos con ese filtro.</div>
+</section>
 
-      <div class="hero-card">
-        <div class="scanline"></div>
-        <div class="hex">V</div>
-        <span class="card-label">VOIDEX NÚCLEO</span>
-        <strong>NIVEL UP</strong>
-        <small>01 / 99</small>
-      </div>
+<section class="page" id="profile"><div class="profile-hero"><div class="profile-avatar">VX</div><div><span class="eyebrow">PERFIL DE JUGADOR</span><h2 id="profileName">JugadorX</h2><p id="profileStatus">Disponible para jugar · Nivel 42</p></div><button class="primary" id="editProfile">Editar perfil</button></div><div class="profile-grid"><div class="panel"><span>PROGRESO</span><div class="big-level"><b>42</b><small>NIVEL</small></div><div class="bar"><i></i></div><p>720 / 1000 XP para el nivel 43</p></div><div class="panel stats"><div><b>1,284</b><small>XP TOTAL</small></div><div><b>87</b><small>VICTORIAS</small></div><div><b>24</b><small>LOGROS</small></div></div></div></section>
+<section class="page" id="friends"><div class="section-head"><div><span class="eyebrow">COMUNIDAD</span><h2>Tus <em>amigos</em></h2><p>Ve quién está jugando y únete a una partida.</p></div></div><div class="friends-list"><div><span class="friend-avatar">AX</span><b>Alex</b><small>Jugando Neon Rift</small><button class="join">UNIRME</button></div><div><span class="friend-avatar">MK</span><b>Mika</b><small>En línea</small><button class="join">INVITAR</button></div><div><span class="friend-avatar">RV</span><b>Raven</b><small>Jugando Cyber Zone</small><button class="join">UNIRME</button></div></div></section>
+<section class="page" id="achievements"><div class="section-head"><div><span class="eyebrow">DESBLOQUEA Y AVANZA</span><h2>Tus <em>logros</em></h2><p>Completa retos y presume de tu progreso.</p></div></div><div class="achievement-grid"><div><b>⚡</b><strong>Primera victoria</strong><small>Gana una partida.</small><em>COMPLETADO ✓</em></div><div><b>♕</b><strong>Racha de 7</strong><small>Juega 7 días seguidos.</small><em>5 / 7 DÍAS</em></div><div><b>★</b><strong>Explorador</strong><small>Prueba 10 juegos.</small><em>7 / 10</em></div></div></section>
+<section class="page" id="settings"><div class="section-head"><div><span class="eyebrow">PERSONALIZA TU EXPERIENCIA</span><h2>Ajustes</h2><p>Configura VOIDEX a tu gusto.</p></div></div><div class="settings-list"><label><span>✨<div><b>Efectos visuales</b><small>Animaciones y brillo de VOIDEX</small></div></span><input type="checkbox" checked><i></i></label><label><span>🔔<div><b>Notificaciones</b><small>Avisos sobre juegos y actividad</small></div></span><input type="checkbox" checked><i></i></label><label><span>🌙<div><b>Modo compacto</b><small>Reduce el tamaño de las tarjetas</small></div></span><input type="checkbox"><i></i></label></div></section>
+</main>
 
-      <div class="stats">
-        <div><strong>24K+</strong><span>Jugadores</span></div>
-        <div><strong>1.8K</strong><span>Juegos</span></div>
-        <div><strong>99%</strong><span>Disponibilidad</span></div>
-      </div>
-    </section>
-
-    <section class="page" id="discover">
-      <div class="section-head">
-        <div><span class="eyebrow">DISCOVER</span><h2>Tendencias <span>ahora</span></h2></div>
-        <button class="filter">TODOS ▾</button>
-      </div>
-      <div class="game-grid">
-        <article class="game-card featured"><div class="game-art art-one"><b>NEON<br>RIFT</b></div><div class="game-info"><h3>Neon Rift</h3><span>Acción • PvP</span><button>JUGAR →</button></div></article>
-        <article class="game-card"><div class="game-art art-two"><b>VOID<br>RUNNER</b></div><div class="game-info"><h3>Void Runner</h3><span>Carreras • Online</span><button>JUGAR →</button></div></article>
-        <article class="game-card"><div class="game-art art-three"><b>CYBER<br>ZONE</b></div><div class="game-info"><h3>Cyber Zone</h3><span>FPS • Competitivo</span><button>JUGAR →</button></div></article>
-      </div>
-    </section>
-
-    <section class="page" id="profile">
-      <div class="profile-card">
-        <div class="profile-avatar">VX</div>
-        <span class="eyebrow">JUGARER PROFILE</span>
-        <h2>VOIDEX <span>USER</span></h2>
-        <p>Nivel 42 • Miembro Élite</p>
-        <div class="xp"><span style="width:72%"></span></div>
-        <div class="profile-stats"><div><b>42</b><small>NIVEL</small></div><div><b>1,284</b><small>XP</small></div><div><b>87</b><small>VICTORIAS</small></div></div>
-        <button class="primary">EDITAR PERFIL</button>
-      </div>
-    </section>
-
-    <section class="page" id="settings">
-      <div class="section-head"><div><span class="eyebrow">SISTEMA</span><h2>Ajustes</h2></div></div>
-      <div class="settings-list">
-        <label>Efectos neón <input type="checkbox" checked><i></i></label>
-        <label>Notificaciones <input type="checkbox" checked><i></i></label>
-        <label>Modo compacto <input type="checkbox"><i></i></label>
-      </div>
-    </section>
-  </main>
-
-  <nav class="bottom-nav">
-    <button class="nav active" data-page="home"><span>⌂</span>Inicio</button>
-    <button class="nav" data-page="discover"><span>◈</span>Descubrir</button>
-    <button class="nav" data-page="profile"><span>◇</span>Perfil</button>
-    <button class="nav" data-page="settings"><span>⚙</span>Ajustes</button>
-  </nav>
-
-  <div class="toast" id="toast">VOIDEX SISTEMA READY</div>
-  <script src="script.js"></script>
-</body>
-</html>
+<nav class="mobile-nav"><button class="nav active" data-page="home">⌂<small>Inicio</small></button><button class="nav" data-page="discover">◈<small>Juegos</small></button><button class="nav" data-page="profile">▥<small>Perfil</small></button><button class="nav" data-page="friends">♧<small>Amigos</small></button><button class="nav" data-page="settings">⚙<small>Ajustes</small></button></nav>
+<div class="modal" id="profileModal"><div class="modal-card"><button class="modal-close" id="closeModal">×</button><span class="eyebrow">EDITAR PERFIL</span><h2>Tu perfil</h2><label>Nombre<input id="playerName" value="JugadorX"></label><label>Estado<select id="playerStatus"><option>Disponible para jugar</option><option>Buscando equipo</option><option>No molestar</option></select></label><button class="primary full" id="saveProfile">Guardar cambios</button></div></div>
+<div class="toast" id="toast"></div><script src="script.js"></script>
+</body></html>

@@ -1,59 +1,13 @@
-const pages = document.querySelectorAll('.page');
-const navs = document.querySelectorAll('.nav');
-const toast = document.getElementById('toast');
-
-function showPage(id){
-  pages.forEach(p => p.classList.toggle('active', p.id === id));
-  navs.forEach(n => n.classList.toggle('active', n.dataset.page === id));
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-
-document.querySelectorAll('[data-page]').forEach(el => {
-  el.addEventListener('click', () => showPage(el.dataset.page));
-});
-
-document.querySelectorAll('.game-info button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    toast.textContent = 'INICIANDO JUEGO...';
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 1800);
-  });
-});
-
-document.querySelectorAll('.settings-list input').forEach(input => {
-  input.addEventListener('change', () => {
-    toast.textContent = input.checked ? 'AJUSTE ACTIVADO' : 'AJUSTE DESACTIVADO';
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 1200);
-  });
-});
-
-setTimeout(() => {
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 1600);
-}, 700);
-
-// Mejoras interactivas para móviles
-document.querySelectorAll('button').forEach(btn => {
-  btn.addEventListener('touchstart', () => btn.classList.add('touching'), {passive:true});
-  btn.addEventListener('touchend', () => btn.classList.remove('touching'), {passive:true});
-});
-
-const mobileMenu = document.querySelector('.mobile-menu');
-const nav = document.querySelector('.bottom-nav');
-if (mobileMenu && nav) {
-  mobileMenu.addEventListener('click', () => {
-    nav.classList.toggle('mobile-open');
-  });
-  document.querySelectorAll('.nav').forEach(n => n.addEventListener('click', () => nav.classList.remove('mobile-open')));
-}
-
-// Permite deslizar las tarjetas de juegos cómodamente en pantallas táctiles.
-const gameGrid = document.querySelector('.game-grid');
-if (gameGrid) {
-  gameGrid.addEventListener('wheel', e => {
-    if (window.innerWidth <= 800 && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-      gameGrid.scrollLeft += e.deltaY;
-    }
-  }, {passive:true});
-}
+const pages=[...document.querySelectorAll('.page')], navs=[...document.querySelectorAll('.side,.nav')], toast=document.getElementById('toast');
+function notify(text){toast.textContent=text;toast.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>toast.classList.remove('show'),1800)}
+function showPage(id){pages.forEach(p=>p.classList.toggle('active',p.id===id));navs.forEach(n=>n.classList.toggle('active',n.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-page]').forEach(el=>el.addEventListener('click',()=>showPage(el.dataset.page)));
+document.querySelectorAll('.play').forEach(btn=>btn.addEventListener('click',e=>notify(`Abriendo ${e.target.closest('.game-card').dataset.name}…`)));
+document.querySelectorAll('.mini').forEach(btn=>btn.addEventListener('click',()=>notify(`Preparando ${btn.dataset.game}…`)));
+document.querySelectorAll('.chip').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;let count=0;document.querySelectorAll('.game-card').forEach(c=>{const ok=f==='all'||c.dataset.category===f;c.hidden=!ok;if(ok)count++});document.getElementById('empty').style.display=count?'none':'block';notify(`Mostrando ${btn.textContent.trim()}`)}));
+document.querySelectorAll('.heart').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();btn.classList.toggle('liked');notify(btn.classList.contains('liked')?'Añadido a favoritos ♥':'Quitado de favoritos')}));
+document.getElementById('searchInput').addEventListener('input',e=>{const q=e.target.value.toLowerCase().trim();if(!q)return;showPage('discover');let n=0;document.querySelectorAll('.game-card').forEach(c=>{const ok=c.dataset.name.toLowerCase().includes(q);c.hidden=!ok;if(ok)n++});document.getElementById('empty').style.display=n?'none':'block'});
+document.getElementById('notificationsBtn').addEventListener('click',()=>notify('Tienes 3 notificaciones nuevas'));document.getElementById('avatarBtn').addEventListener('click',()=>showPage('profile'));document.getElementById('eventBtn').addEventListener('click',()=>notify('El Torneo VOIDEX comienza este viernes'));document.getElementById('claimBtn').addEventListener('click',e=>{e.target.disabled=true;e.target.textContent='Recompensa reclamada ✓';notify('+250 XP añadidos a tu cuenta')});
+document.querySelectorAll('.settings-list input').forEach(i=>i.addEventListener('change',()=>notify(i.checked?'Función activada ✓':'Función desactivada')));
+const modal=document.getElementById('profileModal');document.getElementById('editProfile').addEventListener('click',()=>modal.classList.add('open'));document.getElementById('closeModal').addEventListener('click',()=>modal.classList.remove('open'));modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});document.getElementById('saveProfile').addEventListener('click',()=>{const name=document.getElementById('playerName').value.trim()||'JugadorX',status=document.getElementById('playerStatus').value;document.getElementById('profileName').textContent=name;document.getElementById('topName').textContent=name;document.getElementById('profileStatus').textContent=`${status} · Nivel 42`;modal.classList.remove('open');notify('Perfil actualizado ✓')});
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();document.getElementById('searchInput').focus()}if(e.key==='Escape')modal.classList.remove('open')});
