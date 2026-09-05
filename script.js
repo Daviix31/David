@@ -1,49 +1,59 @@
-const header = document.querySelector(".header");
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-const topButton = document.getElementById("topButton");
-const contactForm = document.getElementById("contactForm");
-const formMessage = document.getElementById("formMessage");
+const pages = document.querySelectorAll('.page');
+const navs = document.querySelectorAll('.nav');
+const toast = document.getElementById('toast');
 
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-  menuToggle.textContent = navLinks.classList.contains("active") ? "✕" : "☰";
+function showPage(id){
+  pages.forEach(p => p.classList.toggle('active', p.id === id));
+  navs.forEach(n => n.classList.toggle('active', n.dataset.page === id));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+document.querySelectorAll('[data-page]').forEach(el => {
+  el.addEventListener('click', () => showPage(el.dataset.page));
 });
 
-document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("active");
-    menuToggle.textContent = "☰";
+document.querySelectorAll('.game-info button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    toast.textContent = 'INICIANDO JUEGO...';
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 1800);
   });
 });
 
-window.addEventListener("scroll", () => {
-  header.classList.toggle("scrolled", window.scrollY > 20);
-  topButton.classList.toggle("show", window.scrollY > 450);
+document.querySelectorAll('.settings-list input').forEach(input => {
+  input.addEventListener('change', () => {
+    toast.textContent = input.checked ? 'AJUSTE ACTIVADO' : 'AJUSTE DESACTIVADO';
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 1200);
+  });
 });
 
-topButton.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+setTimeout(() => {
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 1600);
+}, 700);
+
+// Mejoras interactivas para móviles
+document.querySelectorAll('button').forEach(btn => {
+  btn.addEventListener('touchstart', () => btn.classList.add('touching'), {passive:true});
+  btn.addEventListener('touchend', () => btn.classList.remove('touching'), {passive:true});
 });
 
-contactForm.addEventListener("submit", event => {
-  event.preventDefault();
+const mobileMenu = document.querySelector('.mobile-menu');
+const nav = document.querySelector('.bottom-nav');
+if (mobileMenu && nav) {
+  mobileMenu.addEventListener('click', () => {
+    nav.classList.toggle('mobile-open');
+  });
+  document.querySelectorAll('.nav').forEach(n => n.addEventListener('click', () => nav.classList.remove('mobile-open')));
+}
 
-  const name = document.getElementById("name").value.trim();
-  formMessage.textContent = `¡Gracias, ${name}! Tu mensaje fue preparado correctamente.`;
-
-  contactForm.reset();
-});
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
+// Permite deslizar las tarjetas de juegos cómodamente en pantallas táctiles.
+const gameGrid = document.querySelector('.game-grid');
+if (gameGrid) {
+  gameGrid.addEventListener('wheel', e => {
+    if (window.innerWidth <= 800 && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      gameGrid.scrollLeft += e.deltaY;
     }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
-
-document.getElementById("year").textContent = new Date().getFullYear();
+  }, {passive:true});
+}
