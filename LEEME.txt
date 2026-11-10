@@ -1,0 +1,37 @@
+NOVASHOP — VERSIÓN MEJORADA
+===========================
+
+CÓMO ABRIRLA
+1. Extrae todo el contenido del ZIP en una misma carpeta.
+2. Abre index.html con Chrome, Edge, Firefox u otro navegador moderno.
+3. También puedes subir el contenido completo a tu hosting (por ejemplo, public_html).
+
+ARCHIVOS
+- index.html: estructura y secciones de la tienda.
+- style.css: diseño visual y adaptación a móviles.
+- script.js: productos, búsqueda, filtros, favoritos, detalles y carrito.
+- assets/: ilustraciones SVG locales y favicon (no dependen de Internet).
+
+PERSONALIZAR PRODUCTOS
+Abre script.js y edita la lista 'products' al principio.
+Campos: id, name, category, price, oldPrice, image y description.
+Los precios están en pesos colombianos (COP).
+
+FUNCIONES INCLUIDAS
+- Navegación móvil y diseño responsive.
+- Búsqueda sin acentos, filtros por categoría y orden por precio/descuento.
+- Favoritos y carrito guardados en el navegador (localStorage).
+- Ficha de producto, ajuste de cantidades, cálculo del subtotal y progreso
+  de envío gratis desde $150.000 COP.
+- Descarga de una lista de artículos del carrito.
+
+IMPORTANTE
+Esta es una tienda estática de demostración. No tiene base de datos,
+registro de clientes, gestión real de inventario, envío de pedidos ni
+pagos habilitados. Para vender de verdad es necesario conectar un backend,
+un sistema de pedidos, una pasarela de pago y configurar la información
+comercial y las políticas correspondientes.
+
+La tipografía online es opcional: si no tienes conexión, la tienda
+utiliza tipografía alternativa del sistema. Las ilustraciones funcionan
+sin Internet.

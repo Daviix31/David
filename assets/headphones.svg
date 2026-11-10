@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" width="640" height="520" role="img">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F2EFFF"/><stop offset="1" stop-color="#DED8FF"/></linearGradient>
+  <linearGradient id="light" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity=".88"/><stop offset="1" stop-color="#fff" stop-opacity=".12"/></linearGradient>
+  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+  <linearGradient id="v" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A79AFF"/><stop offset=".55" stop-color="#6757D8"/><stop offset="1" stop-color="#3B346B"/></linearGradient>
+</defs>
+<rect width="640" height="520" fill="url(#bg)"/>
+<circle cx="538" cy="90" r="145" fill="#fff" opacity=".22"/>
+<circle cx="80" cy="440" r="105" fill="#fff" opacity=".27"/>
+<path d="M55 114C95 70 157 67 213 105" fill="none" stroke="#fff" stroke-width="2" opacity=".35"/>
+<ellipse cx="330" cy="437" rx="188" ry="26" fill="#51456B" opacity=".18" filter="url(#shadow)"/>
+
+<!-- Metallic overhead arc -->
+<path d="M191 284V238C191 135 241 91 322 91S453 137 453 238V284" fill="none" stroke="#453A89" stroke-width="65" stroke-linecap="round"/>
+<path d="M191 274V234C191 129 238 91 322 91S453 137 453 234V274" fill="none" stroke="url(#v)" stroke-width="43" stroke-linecap="round"/>
+<path d="M214 210C226 144 270 114 322 114S417 144 429 210" fill="none" stroke="#CEC5FF" stroke-width="10" stroke-linecap="round" opacity=".85"/>
+<rect x="148" y="244" width="94" height="154" rx="42" fill="#30295D"/>
+<rect x="164" y="254" width="78" height="140" rx="35" fill="url(#v)"/>
+<rect x="178" y="267" width="51" height="113" rx="25" fill="#AB9FEF" opacity=".45"/>
+<rect x="402" y="244" width="94" height="154" rx="42" fill="#30295D"/>
+<rect x="402" y="254" width="77" height="140" rx="35" fill="url(#v)"/>
+<rect x="414" y="267" width="52" height="113" rx="25" fill="#AB9FEF" opacity=".45"/>
+<path d="M181 333c1-29 7-41 17-47" stroke="#FFF" stroke-width="5" opacity=".5" fill="none" stroke-linecap="round"/>
+
+</svg>
